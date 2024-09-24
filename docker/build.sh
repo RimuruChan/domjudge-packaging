@@ -43,7 +43,7 @@ fi
 section_start "Variables"
 VERSION="$1"
 NAMESPACE="${2-domjudge}"
-URL=https://www.domjudge.org/releases/domjudge-${VERSION}.tar.gz
+URL=https://github.com/RimuruChan/domjudge/archive/refs/tags/${VERSION}.tar.gz
 FILE=domjudge.tar.gz
 section_end
 
@@ -51,7 +51,7 @@ section_start "Download DOMjudge tarball"
 echo "[..] Downloading DOMjudge version ${VERSION}..."
 if ! wget --quiet "${URL}" -O ${FILE}
 then
-	echo "[!!] DOMjudge version ${VERSION} file not found on https://www.domjudge.org/releases"
+	echo "[!!] DOMjudge version ${VERSION} file not found on https://github.com/RimuruChan/domjudge"
 	exit 1
 fi
 echo "[ok] DOMjudge version ${VERSION} downloaded as domjudge.tar.gz"; echo
