@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
-ENV PHPSUPPORTED="7.4 8.0 8.1 8.2"
+ENV PHPSUPPORTED="7.4 8.0 8.1 8.2 8.4"
 ENV APTINSTALL="apt-get install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold"
 RUN useradd -m domjudge
 RUN useradd -d /nonexistent -g nogroup -s /bin/false domjudge-run-0
@@ -11,8 +11,9 @@ RUN apt-get update && apt-get install -y \
   acl make zip unzip apache2-utils bsdmainutils libcurl4-gnutls-dev \
   libjsoncpp-dev libmagic-dev autoconf automake bats sudo debootstrap procps \
   gcc g++ default-jre-headless default-jdk-headless ghc fp-compiler libcgroup-dev \
-  devscripts shellcheck nginx libboost-regex-dev composer codespell \
-  php8.3 php8.3-cli php8.3-gd php8.3-curl php8.3-mysql php8.3-gmp php8.3-zip php8.3-xml php8.3-mbstring php8.3-fpm php8.3-intl php8.3-pcov \
+  devscripts shellcheck nginx libboost-regex-dev composer codespell pv httpie \
+  php8.3 php8.3-cli php8.3-bcmath php8.3-gd php8.3-curl php8.3-mysql php8.3-gmp \
+  php8.3-zip php8.3-xml php8.3-mbstring php8.3-fpm php8.3-intl php8.3-pcov \
   # Submit client \
   python3-requests python3-magic \
   # Docs \
@@ -20,7 +21,7 @@ RUN apt-get update && apt-get install -y \
   texlive-latex-recommended texlive-latex-extra texlive-lang-european latexmk \
   # Misc gitlab things \
   mariadb-client curl build-essential packaging-dev  \
-  git python3-pip moreutils w3m python3-yaml \
+  git python3-pip moreutils w3m python3-yaml docker.io \
   # Things we'd have in the chroot \
   ca-certificates default-jre-headless pypy3 locales software-properties-common \
   # W3c WCAG \
